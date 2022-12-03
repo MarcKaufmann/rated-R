@@ -1,5 +1,6 @@
 ---
 title: "Rated R"
+subtitle: "The Language for Mature Data Analysts"
 author: "Zsuzsa Holler (Emarsys) and Marc Kaufmann (CEU)"
 format: revealjs
 editor: visual
@@ -9,9 +10,9 @@ editor: visual
 
 Currently I include a slide for each major point. Comments or things we should mention on each slide are in speaker notes: triple colons (:::) with a notes class ({.notes}).
 
-## Rated R: For Mature Data Analysts
+## Rated R
 
-Screenshot of Tidyverse over Pandas
+![Stackoverflow 2022 Developer Survey](stackoverflow-survey-2022-screenshot.png)
 
 ::: notes
 Zsuzsa:
@@ -24,7 +25,7 @@ People complain about R's syntax. As a general-purpose programming language, it 
 R is great and beginner-friendly for data analysis (`tidyverse`, `ggplot`); Python is a close second; ; Stata, is not even a programming language, and exits the race at the starting line.
 :::
 
-## Slogans for Today
+## 
 
 ::: notes
 Marc: In summary...
@@ -32,22 +33,28 @@ Marc: In summary...
 Transition: "So Zsuzsa, let's look at some trends in data analysis (switch to the Shiny app)."
 :::
 
-R - the language for the mature data analyst
+::: {.fragment style="text-align: center; font-size: 1.3em; margin-bottom: 2em; color: blue; margin-top: 2em"}
+R - the language for mature data analysts
+:::
 
-Python - there is only one way, and that is to copy R
-
-```python
-pandas = tidyverse.copy()    # Warning: creates a shallow copy!
+::: {.fragment style="text-align: center; font-size: 1.2em; margin-bottom: 2em; color: green"}
+Python - there is one, and only one, way: copy R
+```{.python style="font-size: 0.8em; width: 50%; margin: 0 auto"}
+# Warning: creates a shallow copy
+pandas = tidyverse.copy()   
 ```
+:::
 
-Stata - The GUI for Goofy
+::: {.fragment style="text-align: center; font-size: 1.2em; color: grey"}
+Stata - the Gooey for Goofy
+:::
 
 ## Shiny Trends
 
 ::: notes
 Zsuzsa:
 
-If we are sure it works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?
+If we are sure the web part works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?
 
 1.  Some comment about how Python and R are doing better
 2.  Stata is (yet again) doing poorly - and predicted to continue doing poorly.
@@ -125,6 +132,7 @@ In other words: R is functional, and Stata disfunctional.
 Zsuzsa:
 
 -   Show it as a transition to the final slide. Something like "Here is some Stata code that even I can get behind."
+-   We can drop this slide if we have too much to cover
 :::
 
 ```{stata}
@@ -154,3 +162,5 @@ Zsuzsa:
 :::
 
 Visit our app at: <https://zsuzsaholler.shinyapps.io/team_r/>
+
+Vote R

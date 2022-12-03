@@ -389,6 +389,7 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Rated R</h1>
+  <p class="subtitle">The Language for Mature Data Analysts</p>
   <p class="author">Zsuzsa Holler (Emarsys) and Marc Kaufmann (CEU)</p>
 </section>
 
@@ -396,10 +397,10 @@
 <h2>Comments (to delete when slides done)</h2>
 <p>Currently I include a slide for each major point. Comments or things we should mention on each slide are in speaker notes: triple colons (:::) with a notes class ({.notes}).</p>
 </section>
-<section id="rated-r-for-mature-data-analysts" class="slide level2">
-<h2>Rated R: For Mature Data Analysts</h2>
-<p>Screenshot of Tidyverse over Pandas</p>
-<aside class="notes">
+<section id="rated-r" class="slide level2">
+<h2>Rated R</h2>
+
+<img data-src="stackoverflow-survey-2022-screenshot.png" class="r-stretch quarto-figure-center"><p class="caption">Stackoverflow 2022 Developer Survey</p><aside class="notes">
 <p>Zsuzsa:</p>
 <p>People complain about R’s syntax. As a general-purpose programming language, it has its flaws. But R shines in data analysis:</p>
 <ol type="1">
@@ -419,8 +420,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="slogans-for-today" class="slide level2">
-<h2>Slogans for Today</h2>
+<section id="section" class="slide level2">
+<h2></h2>
 <aside class="notes">
 <p>Marc: In summary…</p>
 <p>Transition: “So Zsuzsa, let’s look at some trends in data analysis (switch to the Shiny app).”</p>
@@ -435,16 +436,23 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p>R - the language for the mature data analyst</p>
-<p>Python - there is only one way, and that is to copy R</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>pandas <span class="op">=</span> tidyverse.copy()    <span class="co"># Warning: creates a shallow copy!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Stata - The GUI for Goofy</p>
+<div class="fragment" style="text-align: center; font-size: 1.3em; margin-bottom: 2em; color: blue; margin-top: 2em">
+<p>R - the language for mature data analysts</p>
+</div>
+<div class="fragment" style="text-align: center; font-size: 1.2em; margin-bottom: 2em; color: green">
+<p>Python - there is one, and only one, way: copy R</p>
+<div class="sourceCode" id="cb1" style="font-size: 0.8em; width: 50%; margin: 0 auto"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Warning: creates a shallow copy</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>pandas <span class="op">=</span> tidyverse.copy()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment" style="text-align: center; font-size: 1.2em; color: grey">
+<p>Stata - the Gooey for Goofy</p>
+</div>
 </section>
 <section id="shiny-trends" class="slide level2">
 <h2>Shiny Trends</h2>
 <aside class="notes">
 <p>Zsuzsa:</p>
-<p>If we are sure it works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?</p>
+<p>If we are sure the web part works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?</p>
 <ol type="1">
 <li>Some comment about how Python and R are doing better</li>
 <li>Stata is (yet again) doing poorly - and predicted to continue doing poorly.</li>
@@ -556,6 +564,7 @@
 <p>Zsuzsa:</p>
 <ul>
 <li>Show it as a transition to the final slide. Something like “Here is some Stata code that even I can get behind.”</li>
+<li>We can drop this slide if we have too much to cover</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -601,6 +610,7 @@
           display:block!important;
       }</style></aside>
 <p>Visit our app at: <a href="https://zsuzsaholler.shinyapps.io/team_r/" class="uri">https://zsuzsaholler.shinyapps.io/team_r/</a></p>
+<p>Vote R</p>
 <div class="footer footer-default">
 
 </div>
