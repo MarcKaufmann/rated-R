@@ -34,7 +34,7 @@ Transition: "So Zsuzsa, let's look at some trends in data analysis (switch to th
 :::
 
 ::: {.fragment style="text-align: center; font-size: 1.3em; margin-bottom: 2em; color: blue; margin-top: 2em"}
-R - the language for mature data analysts
+R - the Language for Mature Data Analysts
 :::
 
 ::: {.fragment style="text-align: center; font-size: 1.2em; margin-bottom: 2em; color: green"}
