@@ -46,7 +46,7 @@ pandas = tidyverse.copy()
 :::
 
 ::: {.fragment style="text-align: center; font-size: 1.2em; color: grey"}
-Stata - the Gooey for Goofy
+$tata - the Gooey for Goofy
 :::
 
 ## Shiny Trends
