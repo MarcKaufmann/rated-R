@@ -39,14 +39,15 @@ R - the Language for Mature Data Analysts
 
 ::: {.fragment style="text-align: center; font-size: 1.2em; margin-bottom: 2em; color: green"}
 Python - there is one, and only one, way: copy R
-```{.python style="font-size: 0.8em; width: 50%; margin: 0 auto"}
+
+``` {.python style="font-size: 0.8em; width: 50%; margin: 0 auto"}
 # Warning: creates a shallow copy
 pandas = tidyverse.copy()   
 ```
 :::
 
 ::: {.fragment style="text-align: center; font-size: 1.2em; color: grey"}
-$tata - the Gooey for Goofy
+\$tata - the Gooey for Goofy
 :::
 
 ## Shiny Trends
@@ -83,19 +84,15 @@ Zsuzsa:
 ## Functions, Classes, and Abstraction
 
 ::: fragment
-R and Python - being real programming languages - have it all:
+Programming languages (R and Python) have it all:
 :::
 
-::: fragment
+::: incremental
 -   Functions
-:::
-
-::: fragment
 -   Classes
-:::
-
-::: fragment
--   Loops, packages, conditionals, ...
+-   Loops
+-   Packages
+-   ...
 :::
 
 ::: notes
@@ -151,7 +148,7 @@ library(dotwhisker);    # easy and beautiful regression plots, imho
 END_OF_R
 ```
 
-## Back to Shiny App for Conclusion
+## Bright and Shiny
 
 ::: notes
 Zsuzsa:
@@ -159,8 +156,16 @@ Zsuzsa:
 -   Show full code in Rstudio (not to explain, only to highlight)
 
 -   Mention the link to play with (but only if we know that the app will work without cheating! Or else we'll get tough questions from the crowd).
+
+Marc takes the quiz question.
 :::
 
-Visit our app at: <https://zsuzsaholler.shinyapps.io/team_r/>
+::: {.fragment style="text-align: center;"}
+Code and slides written and compiled in R and RStudio
 
-Vote R
+Go to <https://github.com/MarcKaufmann/rated-R/>
+:::
+
+::: {.fragment style="text-align: center;"}
+Quiz: What value do R, Python, and Stata store in the CC variable?
+:::
