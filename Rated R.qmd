@@ -1,0 +1,156 @@
+---
+title: "Rated R"
+author: "Zsuzsa Holler (Emarsys) and Marc Kaufmann (CEU)"
+format: revealjs
+editor: visual
+---
+
+## Comments (to delete when slides done)
+
+Currently I include a slide for each major point. Comments or things we should mention on each slide are in speaker notes: triple colons (:::) with a notes class ({.notes}).
+
+## Rated R: For Mature Data Analysts
+
+Screenshot of Tidyverse over Pandas
+
+::: notes
+Zsuzsa:
+
+People complain about R's syntax. As a general-purpose programming language, it has its flaws. But R shines in data analysis:
+
+1.  `tidyverse` more popular than `pandas` : in Python terms, `pandas` is a good, but ultimately shallow copy of `tidyverse`
+2.  Why is Stata not included? The survey, as today's debate, is about coding *languages* - not clicky-clicky tools. That is also why Stata is effectively disqualified from the debate: it is not a coding language.
+
+R is great and beginner-friendly for data analysis (`tidyverse`, `ggplot`); Python is a close second; ; Stata, is not even a programming language, and exits the race at the starting line.
+:::
+
+## Slogans for Today
+
+::: notes
+Marc: In summary...
+
+Transition: "So Zsuzsa, let's look at some trends in data analysis (switch to the Shiny app)."
+:::
+
+R - the language for the mature data analyst
+
+Python - there is only one way, and that is to copy R
+
+```python
+pandas = tidyverse.copy()    # Warning: creates a shallow copy!
+```
+
+Stata - The GUI for Goofy
+
+## Shiny Trends
+
+::: notes
+Zsuzsa:
+
+If we are sure it works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?
+
+1.  Some comment about how Python and R are doing better
+2.  Stata is (yet again) doing poorly - and predicted to continue doing poorly.
+:::
+
+## Tidyverse
+
+```{r}
+#| echo: true
+#| eval: false
+l1 <- list(a = "Test") # Include the relevant Shiny code here (basic pipe etc)
+```
+
+::: notes
+Zsuzsa:
+
+-   Explain the basics (not the functions, but the pipeline, that it is about relational data, coherent framework hence tidyVERSE). Mention the Kaggle stuff in passing as a way to say that a lot of code is in this area.
+
+-   Highlight `ggplot2`, which was also copied in Python
+
+-   Maybe: mention that a great way to learn about the tidyverse are the vignettes
+
+-   At the end mention or highlight the functions and how it allows to abstract things
+:::
+
+## Functions, Classes, and Abstraction
+
+::: fragment
+R and Python - being real programming languages - have it all:
+:::
+
+::: fragment
+-   Functions
+:::
+
+::: fragment
+-   Classes
+:::
+
+::: fragment
+-   Loops, packages, conditionals, ...
+:::
+
+::: notes
+Marc:
+
+-   R has abstractions for mature programming. Python, being a real programming language, does similarly.
+
+-   What does Stata have?
+
+-   Let's watch a running Stata program: .doh files (video or screenshot)
+:::
+
+## A fact-based, true run of Stata scripts
+
+::: notes
+Marc:
+
+-   Video or screenshot of running Stata code with Homer Simpson's "D'oh"s
+
+-   If you are a programmer, you can use makefiles for 'replicability'. Don't believe me? Look at Miklos Koren's well-documented Stata scripts (they are scripts, not code).
+
+-   Hand over to Zsuzsa by saying "We should also say something positive about Stata."
+:::
+
+::: fragment
+In other words: R is functional, and Stata disfunctional.
+:::
+
+:::
+
+## Our Favorite Stata Code
+
+::: notes
+Zsuzsa:
+
+-   Show it as a transition to the final slide. Something like "Here is some Stata code that even I can get behind."
+:::
+
+```{stata}
+#| eval: false
+#| echo: true
+
+rsource, terminator(END_OF_R) rpath("/usr/local/bin/R") roptions(`"--vanilla"')
+// rsource using my_script.R, rpath(`"c:\r\R-3.5.1\bin\Rterm.exe"') roptions(`"--vanilla"')  // use this line instead if you run a windows box
+
+library(tidyverse);     # collection of all-around useful R packages
+library(haven);         # for importing Stata datasets
+library(dotwhisker);    # easy and beautiful regression plots, imho
+
+# ZSUZSA: Replace by one of our code samples
+
+END_OF_R
+```
+
+## Back to Shiny App for Conclusion
+
+::: notes
+Zsuzsa:
+
+-   Show full code in Rstudio (not to explain, only to highlight)
+
+-   Mention the link to play with (but only if we know that the app will work without cheating! Or else we'll get tough questions from the crowd).
+:::
+
+Visit our app at: <https://zsuzsaholler.shinyapps.io/team_r/>
