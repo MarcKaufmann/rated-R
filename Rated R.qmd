@@ -130,7 +130,7 @@ D'Oh files: Stata's way of reusing code!
 :::
 
 ::: {.fragment style="font-size: 1.2em;"}
-R is [functional]{style="color: blue"}[, Stata is [disfunctional]{style="color: red;"}.]{.fragment}
+[R is functional]{style="color: blue"}[, Stata is disfunctional.]{.fragment style="color: red;"}
 :::
 
 ## Our Favorite Stata Code
@@ -158,7 +158,7 @@ library(dotwhisker);    # easy and beautiful regression plots, imho
 END_OF_R
 ```
 
-##
+## 
 
 ::: notes
 Zsuzsa:
@@ -174,7 +174,7 @@ Marc takes the quiz question.
 Vote R
 :::
 
-:::{.fragment style="text-align: center; font-size: 1.2em;"}
+::: {.fragment style="text-align: center; font-size: 1.2em;"}
 If you can vote, you are mature enough for R.
 :::
 
