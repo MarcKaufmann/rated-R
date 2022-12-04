@@ -6,10 +6,6 @@ format: revealjs
 editor: visual
 ---
 
-## Comments (to delete when slides done)
-
-Currently I include a slide for each major point. Comments or things we should mention on each slide are in speaker notes: triple colons (:::) with a notes class ({.notes}).
-
 ## Rated R
 
 ![Stackoverflow 2022 Developer Survey](stackoverflow-survey-2022-screenshot.png)
