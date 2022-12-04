@@ -105,7 +105,7 @@ Marc:
 -   Let's watch a running Stata program: .doh files (video or screenshot)
 :::
 
-## A fact-based, true run of Stata scripts
+## Running a Stata Script
 
 ::: notes
 Marc:
@@ -117,8 +117,20 @@ Marc:
 -   Hand over to Zsuzsa by saying "We should also say something positive about Stata."
 :::
 
-::: fragment
-In other words: R is functional, and Stata disfunctional.
+::: {.fragment .fade-in}
+![](koren-peto-doh-files.png)
+:::
+
+## Running a Stata Script
+
+![](final-running-stata.mp4)
+
+::: {.fragment style="font-size: 1.2em;"}
+D'Oh files: Stata's way of reusing code!
+:::
+
+::: {.fragment style="font-size: 1.2em;"}
+R is [functional]{style="color: blue"}[, Stata is [disfunctional]{style="color: red;"}.]{.fragment}
 :::
 
 ## Our Favorite Stata Code
@@ -146,7 +158,7 @@ library(dotwhisker);    # easy and beautiful regression plots, imho
 END_OF_R
 ```
 
-## Bright and Shiny
+##
 
 ::: notes
 Zsuzsa:
@@ -158,12 +170,20 @@ Zsuzsa:
 Marc takes the quiz question.
 :::
 
-::: {.fragment style="text-align: center;"}
+::: {style="text-align: center; font-size: 2em; color: blue;"}
+Vote R
+:::
+
+:::{.fragment style="text-align: center; font-size: 1.2em;"}
+If you can vote, you are mature enough for R.
+:::
+
+::: {.fragment style="text-align: center; margin: 2em 0em 2em 0em;"}
 Code and slides written and compiled in R and RStudio
 
 Go to <https://github.com/MarcKaufmann/rated-R/>
 :::
 
 ::: {.fragment style="text-align: center;"}
-Quiz: What value do R, Python, and Stata store in the CC variable?
+Quiz: What do R, Python, and Stata store in the CC variable?
 :::
