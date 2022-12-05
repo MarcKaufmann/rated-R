@@ -395,6 +395,19 @@
 
 <section id="rated-r" class="slide level2">
 <h2>Rated R</h2>
+<aside class="notes">
+<p>Zsuzsa: - put together a interactive web app with dual purpose: - demonstrates how easy it is to do it in R (less than 40 lines of code) - shows some data that supports my argument - comment on general trends: Python more popular than R but as a true data scientist I disregard this - in some areas python and R are neck and neck - only search term that shows some promise for Stata is “panel data”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
 <img data-src="stackoverflow-survey-2022-screenshot.png" class="r-stretch quarto-figure-center"><p class="caption">Stackoverflow 2022 Developer Survey</p><aside class="notes">
 <p>Zsuzsa:</p>
@@ -403,7 +416,7 @@
 <li><code>tidyverse</code> more popular than <code>pandas</code> : in Python terms, <code>pandas</code> is a good, but ultimately shallow copy of <code>tidyverse</code></li>
 <li>Why is Stata not included? The survey, as today’s debate, is about coding <em>languages</em> - not clicky-clicky tools. That is also why Stata is effectively disqualified from the debate: it is not a coding language.</li>
 </ol>
-<p>R is great and beginner-friendly for data analysis (<code>tidyverse</code>, <code>ggplot</code>); Python is a close second; ; Stata, is not even a programming language, and exits the race at the starting line.</p>
+<p>R is great and beginner-friendly for data analysis (<code>tidyverse</code>, <code>ggplot</code>); Python is a close second; Stata, is not even a programming language, and exits the race at the starting line.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -420,7 +433,6 @@
 <h2></h2>
 <aside class="notes">
 <p>Marc: In summary…</p>
-<p>Transition: “So Zsuzsa, let’s look at some trends in data analysis (switch to the Shiny app).”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -444,44 +456,16 @@
 <p>$tata - the Gooey for Goofy</p>
 </div>
 </section>
-<section id="shiny-trends" class="slide level2">
-<h2>Shiny Trends</h2>
-<aside class="notes">
-<p>Zsuzsa:</p>
-<p>If we are sure the web part works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?</p>
-<ol type="1">
-<li>Some comment about how Python and R are doing better</li>
-<li>Stata is (yet again) doing poorly - and predicted to continue doing poorly.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
 <section id="tidyverse" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Tidyverse</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href="#cb2-1"></a><span class="co"># ...</span></span>
-<span id="cb2-2" class="hljs-ln-code"><a href="#cb2-2"></a>gtrends_data_ts <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(input<span class="sc">$</span>keyword) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3" class="hljs-ln-code"><a href="#cb2-3"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), as.numeric) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4" class="hljs-ln-code"><a href="#cb2-4"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>date, <span class="at">names_to =</span> <span class="st">"keyword"</span>, <span class="at">values_to =</span> <span class="st">"hits"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5" class="hljs-ln-code"><a href="#cb2-5"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-6" class="hljs-ln-code"><a href="#cb2-6"></a>  <span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> keyword)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <aside class="notes">
 <p>Zsuzsa:</p>
 <ul>
-<li><p>Explain the basics (not the functions, but the pipeline, that it is about relational data, coherent framework hence tidyVERSE). Mention the Kaggle stuff in passing as a way to say that a lot of code is in this area.</p></li>
-<li><p>Highlight <code>ggplot2</code>, which was also copied in Python</p></li>
-<li><p>Maybe: mention that a great way to learn about the tidyverse are the vignettes</p></li>
-<li><p>At the end mention or highlight the functions and how it allows to abstract things</p></li>
+<li>R code with tidyverse syntax + pipe operator is tidy and readable</li>
+<li>Maybe: mention that a great way to learn about the tidyverse are the vignettes</li>
+<li>data preparation: this is where we usually spend a big chuck of our time (maybe mention Kaggle)</li>
+<li>model fitting and forecast in 3 lines of code</li>
+<li>plotting: highlight <code>ggplot2</code>, which was also copied in Python At the end mention or highlight the functions and how it allows to abstract things.</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -494,41 +478,45 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href="#cb2-1"></a><span class="co"># ...</span></span>
+<span id="cb2-2" class="hljs-ln-code"><a href="#cb2-2"></a>gtrends_data_ts <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(input<span class="sc">$</span>keyword) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3" class="hljs-ln-code"><a href="#cb2-3"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), as.numeric) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4" class="hljs-ln-code"><a href="#cb2-4"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>date, <span class="at">names_to =</span> <span class="st">"keyword"</span>, <span class="at">values_to =</span> <span class="st">"hits"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5" class="hljs-ln-code"><a href="#cb2-5"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6" class="hljs-ln-code"><a href="#cb2-6"></a>  <span class="fu">mutate</span>(<span class="at">keyword =</span> <span class="fu">factor</span>(keyword, <span class="at">levels=</span>levels, <span class="at">labels=</span>languages)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-7" class="hljs-ln-code"><a href="#cb2-7"></a>  <span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> keyword)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="tidyverse-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Tidyverse</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="7-12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a><span class="co"># ...</span></span>
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="8-10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a><span class="co"># ...</span></span>
 <span id="cb3-2" class="hljs-ln-code"><a href="#cb3-2"></a>gtrends_data_ts <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(input<span class="sc">$</span>keyword) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3" class="hljs-ln-code"><a href="#cb3-3"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), as.numeric) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-4" class="hljs-ln-code"><a href="#cb3-4"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>date, <span class="at">names_to =</span> <span class="st">"keyword"</span>, <span class="at">values_to =</span> <span class="st">"hits"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-5" class="hljs-ln-code"><a href="#cb3-5"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6" class="hljs-ln-code"><a href="#cb3-6"></a>  <span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> keyword)</span>
-<span id="cb3-7" class="hljs-ln-code"><a href="#cb3-7"></a>gtrends_data_ts <span class="sc">%&gt;%</span></span>
-<span id="cb3-8" class="hljs-ln-code"><a href="#cb3-8"></a>  <span class="fu">model</span>(<span class="fu">ARIMA</span>(hits)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-9" class="hljs-ln-code"><a href="#cb3-9"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">"24 months"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10" class="hljs-ln-code"><a href="#cb3-10"></a>  <span class="fu">autoplot</span>(gtrends_data_ts) <span class="sc">+</span> </span>
-<span id="cb3-11" class="hljs-ln-code"><a href="#cb3-11"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fu">yearmonth</span>(<span class="st">"2018 Jan"</span>), <span class="cn">NA</span>)) <span class="sc">+</span></span>
-<span id="cb3-12" class="hljs-ln-code"><a href="#cb3-12"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5" class="hljs-ln-code"><a href="#cb3-5"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6" class="hljs-ln-code"><a href="#cb3-6"></a>  <span class="fu">mutate</span>(<span class="at">keyword =</span> <span class="fu">factor</span>(keyword, <span class="at">levels=</span>levels, <span class="at">labels=</span>languages)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7" class="hljs-ln-code"><a href="#cb3-7"></a>  <span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> keyword)</span>
+<span id="cb3-8" class="hljs-ln-code"><a href="#cb3-8"></a>forecast <span class="ot">&lt;-</span> gtrends_data_ts <span class="sc">%&gt;%</span></span>
+<span id="cb3-9" class="hljs-ln-code"><a href="#cb3-9"></a>  <span class="fu">model</span>(<span class="fu">ARIMA</span>(hits)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10" class="hljs-ln-code"><a href="#cb3-10"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">"24 months"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="tidyverse-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Tidyverse</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1-3,13-14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb4-1" class="hljs-ln-code"><a href="#cb4-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb4-2" class="hljs-ln-code"><a href="#cb4-2"></a>    output<span class="sc">$</span>trendplot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb4-3" class="hljs-ln-code"><a href="#cb4-3"></a>        <span class="fu">req</span>(input<span class="sc">$</span>keyword)</span>
-<span id="cb4-4" class="hljs-ln-code"><a href="#cb4-4"></a>        gtrends_data_ts <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(input<span class="sc">$</span>keyword) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-5" class="hljs-ln-code"><a href="#cb4-5"></a>            <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), as.numeric) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-6" class="hljs-ln-code"><a href="#cb4-6"></a>            <span class="fu">pivot_longer</span>(<span class="sc">!</span>date, <span class="at">names_to =</span> <span class="st">"keyword"</span>, <span class="at">values_to =</span> <span class="st">"hits"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-7" class="hljs-ln-code"><a href="#cb4-7"></a>            <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-8" class="hljs-ln-code"><a href="#cb4-8"></a>            <span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> keyword)</span>
-<span id="cb4-9" class="hljs-ln-code"><a href="#cb4-9"></a>        gtrends_data_ts <span class="sc">%&gt;%</span></span>
-<span id="cb4-10" class="hljs-ln-code"><a href="#cb4-10"></a>            <span class="fu">model</span>(<span class="fu">ARIMA</span>(hits)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-11" class="hljs-ln-code"><a href="#cb4-11"></a>            <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">"24 months"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-12" class="hljs-ln-code"><a href="#cb4-12"></a>            <span class="fu">autoplot</span>(gtrends_data_ts) <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fu">yearmonth</span>(<span class="st">"2018 Jan"</span>), <span class="cn">NA</span>)) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb4-13" class="hljs-ln-code"><a href="#cb4-13"></a>    })</span>
-<span id="cb4-14" class="hljs-ln-code"><a href="#cb4-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="11-11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb4-1" class="hljs-ln-code"><a href="#cb4-1"></a><span class="co"># ...</span></span>
+<span id="cb4-2" class="hljs-ln-code"><a href="#cb4-2"></a>gtrends_data_ts <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(input<span class="sc">$</span>keyword) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3" class="hljs-ln-code"><a href="#cb4-3"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="sc">-</span>date), as.numeric) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4" class="hljs-ln-code"><a href="#cb4-4"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>date, <span class="at">names_to =</span> <span class="st">"keyword"</span>, <span class="at">values_to =</span> <span class="st">"hits"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5" class="hljs-ln-code"><a href="#cb4-5"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">yearmonth</span>(date)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6" class="hljs-ln-code"><a href="#cb4-6"></a>  <span class="fu">mutate</span>(<span class="at">keyword =</span> <span class="fu">factor</span>(keyword, <span class="at">levels=</span>levels, <span class="at">labels=</span>languages)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7" class="hljs-ln-code"><a href="#cb4-7"></a>  <span class="fu">as_tsibble</span>(<span class="at">index =</span> date, <span class="at">key =</span> keyword)</span>
+<span id="cb4-8" class="hljs-ln-code"><a href="#cb4-8"></a>forecast <span class="ot">&lt;-</span> gtrends_data_ts <span class="sc">%&gt;%</span></span>
+<span id="cb4-9" class="hljs-ln-code"><a href="#cb4-9"></a>  <span class="fu">model</span>(<span class="fu">ARIMA</span>(hits)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-10" class="hljs-ln-code"><a href="#cb4-10"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">"24 months"</span>)</span>
+<span id="cb4-11" class="hljs-ln-code"><a href="#cb4-11"></a><span class="fu">gtrends_plot</span>(gtrends_data_ts, forecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="functions-classes-and-abstraction" class="slide level2">
@@ -618,16 +606,8 @@
           display:block!important;
       }</style></aside>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1"></a>rsource, terminator(END_OF_R) rpath(<span class="st">"/usr/local/bin/R"</span>) roptions(<span class="st">`"</span>--vanilla<span class="st">"')</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="st">// rsource using my_script.R, rpath(`"</span>c:\<span class="fu">r</span>\R-3.5.1\<span class="bn">bin</span>\Rterm.exe<span class="st">"') roptions(`"</span>--vanilla<span class="st">"')  // use this line instead if you run a windows box</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">library(tidyverse);     # collection of all-around useful R packages</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="st">library(haven);         # for importing Stata datasets</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="st">library(dotwhisker);    # easy and beautiful regression plots, imho</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="st"># ZSUZSA: Replace by one of our code samples</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="st">END_OF_R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource stata number-lines code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1"></a>rsource <span class="kw">using</span> my_R_code.R, rpath(<span class="st">"/usr/local/bin/R"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>roptions(<span class="st">`"</span>--vanilla<span class="st">"')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-1" class="slide level2">

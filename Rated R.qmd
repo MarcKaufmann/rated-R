@@ -7,7 +7,15 @@ editor: visual
 ---
 
 ## Rated R
-
+::: notes
+Zsuzsa:
+- put together a interactive web app with dual purpose:
+  - demonstrates how easy it is to do it in R (less than 40 lines of code)
+  - shows some data that supports my argument 
+- comment on general trends: Python more popular than R but as a true data scientist I disregard this
+- in some areas python and R are neck and neck
+- only search term that shows some promise for Stata is "panel data"
+:::
 ![Stackoverflow 2022 Developer Survey](stackoverflow-survey-2022-screenshot.png)
 
 ::: notes
@@ -18,7 +26,7 @@ People complain about R's syntax. As a general-purpose programming language, it 
 1.  `tidyverse` more popular than `pandas` : in Python terms, `pandas` is a good, but ultimately shallow copy of `tidyverse`
 2.  Why is Stata not included? The survey, as today's debate, is about coding *languages* - not clicky-clicky tools. That is also why Stata is effectively disqualified from the debate: it is not a coding language.
 
-R is great and beginner-friendly for data analysis (`tidyverse`, `ggplot`); Python is a close second; ; Stata, is not even a programming language, and exits the race at the starting line.
+R is great and beginner-friendly for data analysis (`tidyverse`, `ggplot`); Python is a close second; Stata, is not even a programming language, and exits the race at the starting line.
 :::
 
 ## 
@@ -26,7 +34,6 @@ R is great and beginner-friendly for data analysis (`tidyverse`, `ggplot`); Pyth
 ::: notes
 Marc: In summary...
 
-Transition: "So Zsuzsa, let's look at some trends in data analysis (switch to the Shiny app)."
 :::
 
 ::: {.fragment style="text-align: center; font-size: 1.3em; margin-bottom: 2em; color: blue; margin-top: 2em"}
@@ -46,18 +53,18 @@ pandas = tidyverse.copy()
 \$tata - the Gooey for Goofy
 :::
 
-## Shiny Trends
+## Tidyverse {auto-animate="true"}
 
 ::: notes
 Zsuzsa:
 
-If we are sure the web part works, we should not have this slide. Otherwise it should have a screenshot of Shiny. Potentially it could literally run the Shiny app, but I am not sure if it would work?
-
-1.  Some comment about how Python and R are doing better
-2.  Stata is (yet again) doing poorly - and predicted to continue doing poorly.
+- R code with tidyverse syntax + pipe operator is tidy and readable
+- Maybe: mention that a great way to learn about the tidyverse are the vignettes
+- data preparation: this is where we usually spend a big chuck of our time (maybe mention Kaggle)
+- model fitting and forecast in 3 lines of code
+- plotting: highlight `ggplot2`, which was also copied in Python
+At the end mention or highlight the functions and how it allows to abstract things.
 :::
-
-## Tidyverse {auto-animate="true"}
 
 ```{r}
 #| echo: true
@@ -66,40 +73,27 @@ If we are sure the web part works, we should not have this slide. Otherwise it s
 gtrends_data_ts <- gtrends(input$keyword) %>% 
   mutate_at(vars(-date), as.numeric) %>% 
   pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
-  mutate(date = yearmonth(date)) %>% 
+  mutate(date = yearmonth(date)) %>%
+  mutate(keyword = factor(keyword, levels=levels, labels=languages)) %>%
   as_tsibble(index = date, key = keyword)
 ```
 
-::: notes
-Zsuzsa:
-
--   Explain the basics (not the functions, but the pipeline, that it is about relational data, coherent framework hence tidyVERSE). Mention the Kaggle stuff in passing as a way to say that a lot of code is in this area.
-
--   Highlight `ggplot2`, which was also copied in Python
-
--   Maybe: mention that a great way to learn about the tidyverse are the vignettes
-
--   At the end mention or highlight the functions and how it allows to abstract things
-:::
-
 ## Tidyverse {auto-animate="true"}
 
 ```{r}
 #| echo: true
 #| eval: false
-#| code-line-numbers: 7-12
+#| code-line-numbers: 8-10
 # ...
 gtrends_data_ts <- gtrends(input$keyword) %>% 
   mutate_at(vars(-date), as.numeric) %>% 
   pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
-  mutate(date = yearmonth(date)) %>% 
+  mutate(date = yearmonth(date)) %>%
+  mutate(keyword = factor(keyword, levels=levels, labels=languages)) %>%
   as_tsibble(index = date, key = keyword)
-gtrends_data_ts %>%
+forecast <- gtrends_data_ts %>%
   model(ARIMA(hits)) %>% 
-  forecast(h = "24 months") %>% 
-  autoplot(gtrends_data_ts) + 
-    coord_cartesian(xlim = c(yearmonth("2018 Jan"), NA)) +
-    theme_bw()
+  forecast(h = "24 months")
 ```
 
 ## Tidyverse {auto-animate="true"}
@@ -107,21 +101,18 @@ gtrends_data_ts %>%
 ```{r}
 #| echo: true
 #| eval: false
-#| code-line-numbers: 1-3,13-14
-server <- function(input, output) {
-    output$trendplot <- renderPlot({
-        req(input$keyword)
-        gtrends_data_ts <- gtrends(input$keyword) %>% 
-            mutate_at(vars(-date), as.numeric) %>% 
-            pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
-            mutate(date = yearmonth(date)) %>% 
-            as_tsibble(index = date, key = keyword)
-        gtrends_data_ts %>%
-            model(ARIMA(hits)) %>% 
-            forecast(h = "24 months") %>% 
-            autoplot(gtrends_data_ts) + coord_cartesian(xlim = c(yearmonth("2018 Jan"), NA)) + theme_bw()
-    })
-}
+#| code-line-numbers: 11-11
+# ...
+gtrends_data_ts <- gtrends(input$keyword) %>% 
+  mutate_at(vars(-date), as.numeric) %>% 
+  pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
+  mutate(date = yearmonth(date)) %>%
+  mutate(keyword = factor(keyword, levels=levels, labels=languages)) %>%
+  as_tsibble(index = date, key = keyword)
+forecast <- gtrends_data_ts %>%
+  model(ARIMA(hits)) %>% 
+  forecast(h = "24 months")
+gtrends_plot(gtrends_data_ts, forecast)
 ```
 
 ## Functions, Classes, and Abstraction
@@ -189,16 +180,9 @@ Zsuzsa:
 #| eval: false
 #| echo: true
 
-rsource, terminator(END_OF_R) rpath("/usr/local/bin/R") roptions(`"--vanilla"')
-// rsource using my_script.R, rpath(`"c:\r\R-3.5.1\bin\Rterm.exe"') roptions(`"--vanilla"')  // use this line instead if you run a windows box
+rsource using my_R_code.R, rpath("/usr/local/bin/R")
+roptions(`"--vanilla"')
 
-library(tidyverse);     # collection of all-around useful R packages
-library(haven);         # for importing Stata datasets
-library(dotwhisker);    # easy and beautiful regression plots, imho
-
-# ZSUZSA: Replace by one of our code samples
-
-END_OF_R
 ```
 
 ## 
