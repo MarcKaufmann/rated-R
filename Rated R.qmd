@@ -57,12 +57,17 @@ If we are sure the web part works, we should not have this slide. Otherwise it s
 2.  Stata is (yet again) doing poorly - and predicted to continue doing poorly.
 :::
 
-## Tidyverse
+## Tidyverse {auto-animate="true"}
 
 ```{r}
 #| echo: true
 #| eval: false
-l1 <- list(a = "Test") # Include the relevant Shiny code here (basic pipe etc)
+# ...
+gtrends_data_ts <- gtrends(input$keyword) %>% 
+  mutate_at(vars(-date), as.numeric) %>% 
+  pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
+  mutate(date = yearmonth(date)) %>% 
+  as_tsibble(index = date, key = keyword)
 ```
 
 ::: notes
@@ -76,6 +81,48 @@ Zsuzsa:
 
 -   At the end mention or highlight the functions and how it allows to abstract things
 :::
+
+## Tidyverse {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: 7-12
+# ...
+gtrends_data_ts <- gtrends(input$keyword) %>% 
+  mutate_at(vars(-date), as.numeric) %>% 
+  pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
+  mutate(date = yearmonth(date)) %>% 
+  as_tsibble(index = date, key = keyword)
+gtrends_data_ts %>%
+  model(ARIMA(hits)) %>% 
+  forecast(h = "24 months") %>% 
+  autoplot(gtrends_data_ts) + 
+    coord_cartesian(xlim = c(yearmonth("2018 Jan"), NA)) +
+    theme_bw()
+```
+
+## Tidyverse {auto-animate="true"}
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: 1-3,13-14
+server <- function(input, output) {
+    output$trendplot <- renderPlot({
+        req(input$keyword)
+        gtrends_data_ts <- gtrends(input$keyword) %>% 
+            mutate_at(vars(-date), as.numeric) %>% 
+            pivot_longer(!date, names_to = "keyword", values_to = "hits") %>% 
+            mutate(date = yearmonth(date)) %>% 
+            as_tsibble(index = date, key = keyword)
+        gtrends_data_ts %>%
+            model(ARIMA(hits)) %>% 
+            forecast(h = "24 months") %>% 
+            autoplot(gtrends_data_ts) + coord_cartesian(xlim = c(yearmonth("2018 Jan"), NA)) + theme_bw()
+    })
+}
+```
 
 ## Functions, Classes, and Abstraction
 
