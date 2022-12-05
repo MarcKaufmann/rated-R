@@ -20,3 +20,17 @@ gtrends <- function(keyword, path = "data") {
   filepath <- file.path(path, glue("gtrends_{gsub(' ', '_', keyword)}.csv"))
   read.csv(filepath)
 }
+
+gtrends_plot <- function(gtrends_data_ts, forecast) {
+  gtrends_data_ts %>% 
+    filter(date >= yearmonth("2018 Jan")) %>% 
+  autoplot() + 
+    autolayer(forecast) + 
+    guides(level = "none") + 
+    theme_bw() +
+    theme(
+      legend.position = "bottom", 
+      legend.title=element_blank(), 
+      text = element_text(size = 24)
+      )
+}
