@@ -50,7 +50,7 @@ pandas = tidyverse.copy()
 
 ## R trends look shiny
 
-[Shiny Data Analysis Trends](https://zsuzsaholler.shinyapps.io/team_r/){target="blank"}
+[Shiny Data Analysis Trends](https://zsuzsaholler.shinyapps.io/rated-r/){target="blank"}
 
 ## Tidyverse {auto-animate="true"}
 
