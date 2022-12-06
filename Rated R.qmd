@@ -7,15 +7,11 @@ editor: visual
 ---
 
 ## Rated R
+
 ::: notes
-Zsuzsa:
-- put together a interactive web app with dual purpose:
-  - demonstrates how easy it is to do it in R (less than 40 lines of code)
-  - shows some data that supports my argument 
-- comment on general trends: Python more popular than R but as a true data scientist I disregard this
-- in some areas python and R are neck and neck
-- only search term that shows some promise for Stata is "panel data"
+Marc: - rated R - R is very beginner-friendly, it is why I teach an intro with tidyverse ... "You will hear people complain about R being unpleasant, so let's look at some DATA about actual users." Zsuzsa: - put together a interactive web app with dual purpose: - demonstrates how easy it is to do it in R (less than 40 lines of code) - shows some data that supports my argument - comment on general trends: Python more popular than R but as a true data scientist I disregard this - in some areas python and R are neck and neck - only search term that shows some promise for Stata is "panel data"
 :::
+
 ![Stackoverflow 2022 Developer Survey](stackoverflow-survey-2022-screenshot.png)
 
 ::: notes
@@ -33,7 +29,6 @@ R is great and beginner-friendly for data analysis (`tidyverse`, `ggplot`); Pyth
 
 ::: notes
 Marc: In summary...
-
 :::
 
 ::: {.fragment style="text-align: center; font-size: 1.3em; margin-bottom: 2em; color: blue; margin-top: 2em"}
@@ -53,17 +48,20 @@ pandas = tidyverse.copy()
 \$tata - the Gooey for Goofy
 :::
 
+## R trends look shiny
+
+[Shiny Data Analysis Trends](https://zsuzsaholler.shinyapps.io/team_r/){target="blank"}
+
 ## Tidyverse {auto-animate="true"}
 
 ::: notes
 Zsuzsa:
 
-- R code with tidyverse syntax + pipe operator is tidy and readable
-- Maybe: mention that a great way to learn about the tidyverse are the vignettes
-- data preparation: this is where we usually spend a big chuck of our time (maybe mention Kaggle)
-- model fitting and forecast in 3 lines of code
-- plotting: highlight `ggplot2`, which was also copied in Python
-At the end mention or highlight the functions and how it allows to abstract things.
+-   R code with tidyverse syntax + pipe operator is tidy and readable
+-   Maybe: mention that a great way to learn about the tidyverse are the vignettes
+-   data preparation: this is where we usually spend a big chuck of our time (maybe mention Kaggle)
+-   model fitting and forecast in 3 lines of code
+-   plotting: highlight `ggplot2`, which was also copied in Python At the end mention or highlight the functions and how it allows to abstract things.
 :::
 
 ```{r}
@@ -118,13 +116,12 @@ gtrends_plot(gtrends_data_ts, forecast)
 ## Functions, Classes, and Abstraction
 
 ::: fragment
-Programming languages (R and Python) have it all:
+R and Python have:
 :::
 
 ::: incremental
 -   Functions
 -   Classes
--   Loops
 -   Packages
 -   ...
 :::
@@ -175,6 +172,8 @@ Zsuzsa:
 -   Show it as a transition to the final slide. Something like "Here is some Stata code that even I can get behind."
 -   We can drop this slide if we have too much to cover
 :::
+
+. . .
 
 ```{stata}
 #| eval: false
