@@ -2,7 +2,9 @@
 title: "Rated R"
 subtitle: "The Language for Mature Data Analysts"
 author: "Zsuzsa Holler (Emarsys) and Marc Kaufmann (CEU)"
-format: revealjs
+format: 
+  revealjs:
+    self-contained: true
 editor: visual
 ---
 
