@@ -175,11 +175,12 @@ Zsuzsa:
 
 . . .
 
-```{stata}
+```{stata style="margin-top: 2em;"}
 #| eval: false
 #| echo: true
 
 rsource using my_R_code.R, rpath("/usr/local/bin/R")
+
 roptions(`"--vanilla"')
 
 ```
