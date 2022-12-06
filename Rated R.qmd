@@ -205,10 +205,11 @@ Vote R
 If you can vote, you are mature enough for R.
 :::
 
-::: {.fragment style="text-align: center; margin: 2em 0em 2em 0em;"}
-Code and slides written and compiled in R and RStudio
+::: {.fragment style="text-align: center; margin: 2em 0em 1em 0em;"}
+Code, app, and slides written and compiled in R and RStudio
 
-Go to <https://github.com/MarcKaufmann/rated-R/>
+- <https://github.com/MarcKaufmann/rated-R/>
+- <https://zsuzsaholler.shinyapps.io/rated-r/>
 :::
 
 ::: {.fragment style="text-align: center;"}
