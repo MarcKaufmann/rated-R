@@ -9,11 +9,7 @@ polls <- read_excel("data/Polls-per-user-CEU_R_Python_Stata_2022.xlsx") |>
     convincing = starts_with("Which was")
   ) |>
   select(id, after, before, convincing) |>
-  mutate(convincing = case_when(
-    str_starts(convincing, "Team Stata")  ~ "Stata",
-    str_starts(convincing, "Team R")      ~ "R",
-    str_starts(convincing, "Team Python") ~ "Python"
-  )) |>
+  mutate(convincing = str_match(convincing, "Team ([A-Za-z]+)")[,2]) |>
   # Limit to people who answer before and after
   filter(if_all(c(after, before), ~ !is.na(.)))
 
